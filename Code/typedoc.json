@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["src/extension.ts"],
+  "out": "docs",
+  "name": "Comment Cleaner",
+  "readme": "README.md"
+}
