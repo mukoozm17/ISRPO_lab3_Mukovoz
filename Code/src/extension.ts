@@ -69,12 +69,17 @@ function removeComments(text: string): string {
 			continue;
 		}
 		if (c === '"') {
-			// строки копируются целиком
-			let end = text.indexOf('"', i + 1);
-			if (end == -1) end = text.length;
+            // строка: копируем вместе с закрывающей кавычкой, \" пропускаем парой
+			let end = i + 1;
+			while (end < text.length && text[end] !== '"') {
+				end++;
+			}
+			if (text[end] === '"') {
+				end++;
+			}
 			result += text.slice(i, end);
 			i = end;
-		} else {
+		}  else {
 			result += c;
 			i++;
 		}
